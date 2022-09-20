@@ -1,0 +1,41 @@
+# Packet protocol
+# every part is a layer
+name = "Packet"
+style = "CamelCase"
+
+# --------- Header ---------
+[header]
+byte_order = "big-endian"
+next_layer = "data"
+
+[header.first_sign]
+index = 0
+field_type = "fixed"
+value_type = "u16"
+value = 0xAA55
+[header.packet_size]
+index = 1
+value_type = "u32"
+[header.second_sign]
+index = 2
+field_type = "fixed"
+value_type = "u16"
+value = 0x33CC
+
+# ---------- Data -----------
+[data]
+next_layer = "footer"
+
+[data.payload]
+value-type = "bytes"
+
+# ---------- Footer ---------
+[footer]
+byte_order = "big-endian"
+
+[footer.sign]
+field_type = "fixed"
+value_type = "u32"
+value = 0x55AACC33
+
+

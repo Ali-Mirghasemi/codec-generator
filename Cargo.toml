@@ -1,0 +1,24 @@
+[package]
+name = "codec-generator"
+version = "0.1.0"
+edition = "2021"
+author = "Ali Mirghasemi"
+description = "Generate C codes for Codec Library"
+default-run = "codec-generator"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "codec_generator"
+path = "src/lib/mod.rs"
+
+[[bin]]
+name = "codec-generator"
+path = "src/main.rs"
+
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "3.2", features = ["derive"] }
+toml = { version = "0.5.9", features = ["preserve_order"] }

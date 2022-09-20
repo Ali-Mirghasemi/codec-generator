@@ -1,0 +1,56 @@
+{
+    "layers": [
+        {
+            "name": "Header",
+            "size": 8,
+            "byte_order": "big_endian",
+            "fields": [
+                {
+                    "name": "FirstSign",
+                    "type": "uint16",
+                    "offset": 0,
+                    "value": "0x33CC",
+                    "fixed": true
+                },
+                {
+                    "name": "PacketSize",
+                    "type": "uint32",
+                    "offset": 1
+                },
+                {
+                    "name": "SecondSign",
+                    "type": "uint16",
+                    "size": 2,
+                    "offset": 2,
+                    "value": "0xAA55",
+                    "fixed": true
+                }
+            ]
+        },
+        {
+            "name": "Data",
+            "size": null,
+            "byte_order": "big_endian",
+            "fields": [
+                {
+                    "name": "Data",
+                    "type": "uint8*", 
+                    "size": null,
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "name": "Data",
+            "size": null,
+            "byte_order": "big_endian",
+            "fields": [
+                {
+                    "name": "Footer",
+                    "type": "uint32",
+                    "offset": 0
+                }
+            ]
+        }
+    ]
+}
